@@ -1,7 +1,8 @@
 import React from "react";
 import { useMoralis } from "react-moralis";
 import styled from "styled-components";
-import { Login } from "./Login";
+import { Login } from "./auth/Login";
+import { Logout } from "./auth/Logout";
 
 export const Header: React.FC = () => {
   const { authenticate, isAuthenticated, user } = useMoralis();
@@ -9,11 +10,7 @@ export const Header: React.FC = () => {
   return (
     <Container>
       <LoginContainer>
-        {!isAuthenticated ? (
-          <Login authenticate={authenticate} />
-        ) : (
-          <span>Hello, {user?.get("username")}</span>
-        )}
+        {!isAuthenticated ? <Login authenticate={authenticate} /> : <Logout />}
       </LoginContainer>
       <section className="hero is-info is-small">
         <div className="hero-body">
@@ -34,7 +31,8 @@ const Container = styled.div`
 
 const LoginContainer = styled.div`
   position: absolute;
-  right: 0;
-  top: 1.5rem;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
   z-index: 999;
 `;
