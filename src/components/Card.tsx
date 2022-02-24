@@ -14,7 +14,7 @@ export const Card: React.FC<IProps> = ({ title, children, imagePath }) => {
           <figure className="image is-4by3">
             <img
               src={imagePath}
-              alt="Placeholder image"
+              alt={title}
               className="modal-button"
               data-target="modal-image2"
             />
