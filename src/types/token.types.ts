@@ -8,6 +8,6 @@ export interface INFTToken {
   name: null;
   symbol: null;
   token_uri: string;
-  metadata: Record<string, unknown>;
+  metadata: Record<string, string>;
   synced_at: string;
 }

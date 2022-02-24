@@ -9,12 +9,17 @@ interface IProps {
 export const Page: React.FC<IProps> = ({ children }) => {
   return (
     <Container>
-      <div>
-        <Header />
-        <section className="container">{children}</section>
-      </div>
+      <Header />
+      <MainSection>{children}</MainSection>
     </Container>
   );
 };
 
-const Container = styled.div``;
+const Container = styled.div`
+  height: 100%;
+`;
+
+const MainSection = styled.section`
+  padding: 2rem;
+  min-height: 100%;
+`;

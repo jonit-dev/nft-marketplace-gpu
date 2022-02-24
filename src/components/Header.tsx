@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { IoDiamondOutline } from "react-icons/io5";
 import { useMoralis } from "react-moralis";
 import styled from "styled-components";
+import { uiColors } from "../constants/colors";
 import { userStore } from "../store/user.store";
 import { IUser } from "../types/user.types";
 import { Login } from "./auth/Login";
@@ -45,7 +46,7 @@ const Container = styled.div`
   height: 100px;
 
   color: white;
-  background-color: #574ae2;
+  background-color: ${uiColors.primary};
 
   h1 {
     font-size: 1.5rem;
@@ -75,7 +76,7 @@ interface IPropsHeaderBlock {
 const HeaderBlock = styled.div<IPropsHeaderBlock>`
   flex: ${(props) => props.flex || 25}%;
   height: 100%;
-  background-color: #574ae2;
+  background-color: ${uiColors.primary};
   padding-left: 1rem;
   padding-right: 1rem;
   box-sizing: border-box;

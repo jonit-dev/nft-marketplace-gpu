@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { appEnv } from "./constants/env";
 import { Home } from "./pages/Home";
 import { nftStore } from "./store/NFT.store";
+import { uiStore } from "./store/UI.store";
 import { INFTToken } from "./types/token.types";
 import { MoralisChains } from "./types/user.types";
 
@@ -16,10 +17,12 @@ function App() {
 
     if (isInitialized) {
       (async () => {
+        uiStore.toggleIsLoading();
         const response = await Web3Api.token.getAllTokenIds({
           address: appEnv.nft.contractAddress!,
           chain: appEnv.currentChain as MoralisChains,
         });
+        uiStore.toggleIsLoading();
 
         const nftTokens = response.result as unknown as INFTToken[];
 
@@ -30,11 +33,9 @@ function App() {
 
   return (
     <Router>
-      <div>
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
     </Router>
   );
 }

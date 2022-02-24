@@ -1,45 +1,38 @@
+import { observer } from "mobx-react";
 import React from "react";
-import styled from "styled-components";
+import { Card } from "../components/Card";
+import { Loading } from "../components/Loading";
 import { Page } from "../components/Page";
+import { nftStore } from "../store/NFT.store";
+import { uiStore } from "../store/UI.store";
 
 interface IProps {}
 
-export const Home: React.FC<IProps> = (props) => {
+export const Home: React.FC<IProps> = observer((props) => {
+  const onRenderNFTs = () =>
+    nftStore.nftTokens.map((nft) => (
+      <Card
+        title={nft.metadata.name}
+        imagePath={nft.metadata.image}
+        key={nft.metadata.name}
+      >
+        <p>{nft.metadata.description}</p>
+        <p>
+          <strong>Amount: </strong> {nft.amount}
+          <strong>Amount: </strong> {nft.amount}
+        </p>
+        <span className="button is-link modal-button" data-target="modal-card">
+          Buy on OpenSea
+        </span>
+      </Card>
+    ));
+
   return (
     <Page>
-      {/* <div className="columns features">
-        <Card title="lorem" imagePath="https://source.unsplash.com/6Ticnhs1AG0">
-          <p>
-            Ut venenatis tellus in metus vulputate. Amet consectetur adipiscing
-            elit pellentesque. Sed arcu non odio euismod lacinia at quis risus.
-            Faucibus turpis in eu mi bibendum neque egestas cmonsu songue.
-            Phasellus vestibulum lorem sed risus.
-          </p>
-          <span
-            className="button is-link modal-button"
-            data-target="modal-card"
-          >
-            Modal Card
-          </span>
-        </Card>
-        <Card title="lorem" imagePath="https://source.unsplash.com/6Ticnhs1AG0">
-          <p>
-            Ut venenatis tellus in metus vulputate. Amet consectetur adipiscing
-            elit pellentesque. Sed arcu non odio euismod lacinia at quis risus.
-            Faucibus turpis in eu mi bibendum neque egestas cmonsu songue.
-            Phasellus vestibulum lorem sed risus.
-          </p>
-          <span
-            className="button is-link modal-button"
-            data-target="modal-card"
-          >
-            Modal Card
-          </span>
-        </Card>
+      {uiStore.isLoading && <Loading />}
+      <div className="columns features">
+        {!uiStore.isLoading && onRenderNFTs()}
       </div>
-      <div className="columns features"></div> */}
     </Page>
   );
-};
-
-const Container = styled.div``;
+});
