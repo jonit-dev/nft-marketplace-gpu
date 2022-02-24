@@ -18,4 +18,6 @@ export const Logout: React.FC<IProps> = (props) => {
   );
 };
 
-const Container = styled.div``;
+const Container = styled.div`
+  max-width: 135px;
+`;

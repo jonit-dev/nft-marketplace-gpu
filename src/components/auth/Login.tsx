@@ -18,4 +18,6 @@ export const Login: React.FC<IProps> = ({ authenticate }) => {
   );
 };
 
-const Container = styled.div``;
+const Container = styled.div`
+  max-width: 135px;
+`;

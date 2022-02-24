@@ -46,4 +46,5 @@ const ButtonText = styled.span`
   font-weight: bold;
   font-size: 0.8rem;
   text-align: center;
+  color: #222a68;
 `;

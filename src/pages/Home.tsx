@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Card } from "../components/Card";
 import { Page } from "../components/Page";
 
 interface IProps {}
@@ -8,7 +7,7 @@ interface IProps {}
 export const Home: React.FC<IProps> = (props) => {
   return (
     <Page>
-      <div className="columns features">
+      {/* <div className="columns features">
         <Card title="lorem" imagePath="https://source.unsplash.com/6Ticnhs1AG0">
           <p>
             Ut venenatis tellus in metus vulputate. Amet consectetur adipiscing
@@ -38,7 +37,7 @@ export const Home: React.FC<IProps> = (props) => {
           </span>
         </Card>
       </div>
-      <div className="columns features"></div>
+      <div className="columns features"></div> */}
     </Page>
   );
 };
