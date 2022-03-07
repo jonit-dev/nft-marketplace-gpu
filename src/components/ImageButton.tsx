@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { BaseButton } from "./BaseButton";
 
 interface IProps {
   imagePath?: string;
@@ -8,32 +9,12 @@ interface IProps {
 
 export const ImageButton: React.FC<IProps> = ({ imagePath, text }) => {
   return (
-    <Container>
+    <BaseButton>
       {imagePath && <Img src={imagePath} alt={text} />}
       <ButtonText>{text}</ButtonText>
-    </Container>
+    </BaseButton>
   );
 };
-
-const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #eaeaea;
-  border-radius: 5px;
-  background-color: white;
-  margin-top: 0.5rem;
-  margin-right: 0.5rem;
-  padding: 0.5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  -webkit-box-shadow: 6px 4px 13px -8px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 6px 4px 13px -8px rgba(0, 0, 0, 0.75);
-  box-shadow: 6px 4px 13px -8px rgba(0, 0, 0, 0.75);
-
-  cursor: pointer;
-`;
 
 const Img = styled.img`
   flex: 25%;
@@ -41,10 +22,11 @@ const Img = styled.img`
   object-fit: scale-down;
 `;
 const ButtonText = styled.span`
-  margin-left: 0.5rem;
   flex: auto;
   font-weight: bold;
   font-size: 0.8rem;
   text-align: center;
   color: #222a68;
+
+  margin-left: 0.5rem;
 `;

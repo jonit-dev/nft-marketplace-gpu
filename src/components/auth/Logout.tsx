@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { ImageButton } from "../ImageButton";
+import { BaseButton } from "../BaseButton";
 
 interface IProps {}
 
@@ -13,7 +13,9 @@ export const Logout: React.FC<IProps> = (props) => {
 
   return (
     <Container onClick={() => logout()}>
-      <ImageButton text="Disconnect" />
+      <BaseButton>
+        <p>Disconnect</p>
+      </BaseButton>
     </Container>
   );
 };
