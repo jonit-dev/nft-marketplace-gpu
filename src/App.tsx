@@ -19,7 +19,7 @@ function App() {
         nftStore.updateNftTokens(nftTokens);
       })();
     }
-  }, [Web3Api.token, isInitialized]);
+  }, [Web3Api, Web3Api.token, isInitialized]);
 
   return (
     <Router>
