@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useMoralis, useMoralisWeb3Api } from "react-moralis";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { getNFTTokenIds } from "./libs/NFTHelper";
 import { Home } from "./pages/Home";
 import { nftStore } from "./store/NFT.store";
 
@@ -14,7 +13,7 @@ function App() {
 
     if (isInitialized) {
       (async () => {
-        const nftTokens = await getNFTTokenIds(Web3Api);
+        const nftTokens = await nftStore.getNFTTokenIds(Web3Api);
 
         nftStore.updateNftTokens(nftTokens);
       })();
