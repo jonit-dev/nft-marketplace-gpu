@@ -19,7 +19,6 @@ export const Home: React.FC<IProps> = observer((props) => {
         <p>{nft.metadata.description}</p>
         <p>
           <strong>Amount: </strong> {nft.amount}
-          <strong>Amount: </strong> {nft.amount}
         </p>
         <span className="button is-link modal-button" data-target="modal-card">
           Buy on OpenSea
