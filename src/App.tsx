@@ -16,9 +16,12 @@ function App() {
         const nftTokens = await nftStore.getNFTTokenIds(Web3Api);
 
         nftStore.updateNftTokens(nftTokens);
+
+        await nftStore.loadTokenIdOwners(Web3Api);
       })();
     }
-  }, [Web3Api, Web3Api.token, isInitialized]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isInitialized]);
 
   return (
     <Router>

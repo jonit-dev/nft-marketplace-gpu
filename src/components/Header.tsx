@@ -15,7 +15,6 @@ export const Header: React.FC = observer(() => {
 
   useEffect(() => {
     if (user) {
-      console.log(user.attributes);
       userStore.setUser(user.attributes as unknown as IUser);
     }
   }, [isAuthenticated, user]);
